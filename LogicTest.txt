@@ -1,0 +1,122 @@
+No 1 Palindrome
+function reverse( str )
+  {
+    
+    let rev_str = "";
+    for( let i = str.length-1 ;i >= 0 ;i--)
+    {
+      rev_str+= str[i];
+    }
+    
+    return rev_str;
+  }
+ 
+
+  function is_palindrome( str )
+  {
+    reverse_str = reverse(str);
+   
+    if( reverse_str === str)
+    {
+      console.log("passed string is palindrome ");
+    }
+    else
+    {
+      console.log("passed string is not palindrome")
+    }
+  }
+  let test = "radar";
+  is_palindrome(test);
+  
+No 2 Leap year
+function leap_year_range(st_year, end_year) {
+        var year_range = [];
+        for (var i = st_year; i <= end_year; i++)
+        {
+             year_range.push(i);
+        }
+        var new_array = [];
+
+  year_range.forEach(
+   function(year)
+    { 
+       if (test_LeapYear(year)) 
+       new_array.push(year);
+    });
+
+  return new_array;
+     }
+
+function test_LeapYear(year) {
+   if ((year % 4 === 0 && year % 100 !== 0) || (year % 100 === 0 && year % 400 === 0)) {
+                return year;
+        } else {
+                return false;
+        }
+}
+
+console.log(leap_year_range(1900,2020));
+
+No 3 Reverse Words
+
+const mySentence = 'I am A Great human';
+const finalSentence = mySentence.replace(/(^\w{2})|(\s+\w{0})/g, letter => letter.toUpperCase()); 
+
+function reverseInPlace(str) {
+  var words = [];
+  words = str.match(/\S+/g);
+  var result = "";
+  for (var i = 0; i < words.length; i++) {
+     result += words[i].split('').reverse().join('') + " " ;
+  }
+  return result.substr(-20)
+}
+console.log(reverseInPlace(mySentence));
+
+No 4 Fibonacci
+
+var number = 2;   
+var num1 = 15, num2 = 1, num3 = 3;  
+var next_term = 0;  
+document.write( " Fibonacci series of the number 2: " + "<br>")  
+for (i = 1; i < number; i++) 
+{  
+  if ( i <= 1)   
+  next_term = i; 
+  else  
+  {  
+    next_term = num1 + num2 + num3;
+    num1 = num2;  
+    num2 = num3;  
+    num3 = next_term;
+  }  
+
+document.write( " Adding " + num1 + " and " + num2 + " and " + next_term + " = " + (num1 + num2 + num3) + "<br>" );  
+  
+}  
+
+No 5 Fizz Buzz
+function fizzBuzz(n) {
+  function fizzBuzzRecursive(n) {
+ 
+    var results = [];
+    if (n === 1) {
+      return '1';
+    } else {
+      if (n % 3 === 0 && n % 5 === 0) {
+        results.push('FizzBuzz');
+      } else if (n % 5 === 0) {
+        results.push('Buzz');
+      } else if (n % 3 === 0) {
+        results.push('Fizz');
+      } else {
+        results.push(''+ n);
+      }
+      return results.concat(fizzBuzzRecursive(n - 1));
+    }
+  }
+  
+  return fizzBuzzRecursive(n).reverse();
+};
+
+console.log(fizzBuzz(3));
